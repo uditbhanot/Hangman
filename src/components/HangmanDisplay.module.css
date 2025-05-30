@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hangmanContainer {
+  width: 16rem;
+  height: 16rem;
+  position: relative;
+}
+
+.gallows {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.head {
+  position: absolute;
+  top: 48px;
+  right: 86px;
+  width: 2rem;
+  height: 2rem;
+  animation: fadeInAndBounce 0.5s ease-out;
+}
+
+.body {
+  position: absolute;
+  top: 76px;
+  right: 98px;
+  width: 0.5rem;
+  height: 4rem;
+  animation: fadeInAndStretch 0.5s ease-out;
+}
+
+.leftArm {
+  position: absolute;
+  top: 120px;
+  right: 66px;
+  width: 3rem;
+  height: 0.5rem;
+  transform-origin: right;
+  transform: rotate(45deg);
+  animation: swingIn 0.5s ease-out;
+}
+
+.rightArm {
+  position: absolute;
+  top: 118px;
+  right: 88px;
+  width: 3rem;
+  height: 0.5rem;
+  transform-origin: left;
+  transform: rotate(-45deg);
+  animation: swingIn 0.5s ease-out;
+}
+
+.leftLeg {
+  position: absolute;
+  top: 154px;
+  right: 60px;
+  width: 3rem;
+  height: 0.5rem;
+  transform-origin: right;
+  transform: rotate(25deg);
+  animation: swingIn 0.5s ease-out;
+}
+
+.rightLeg {
+  position: absolute;
+  top: 155px;
+  right: 95px;
+  width: 3rem;
+  height: 0.5rem;
+  transform-origin: left;
+  transform: rotate(-25deg);
+  animation: swingIn 0.5s ease-out;
+}
+
+.progressBar {
+  width: 100%;
+  background-color: rgba(79, 70, 229, 0.5);
+  border-radius: 9999px;
+  height: 0.625rem;
+  margin-top: 1rem;
+}
+
+.progressFill {
+  background: linear-gradient(to right, #ef4444, #b91c1c);
+  height: 0.625rem;
+  border-radius: 9999px;
+  transition: width 0.5s ease-in-out;
+}
+
+.attemptsText {
+  margin-top: 0.5rem;
+  color: #fde047;
+  font-weight: 600;
+}
+
+/* Animations */
+@keyframes fadeInAndBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInAndStretch {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes swingIn {
+  0% {
+    opacity: 0;
+    transform-origin: inherit;
+    transform: rotate(0deg) scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: inherit;
+    transform: rotate(inherit) scaleX(1);
+  }
+}
